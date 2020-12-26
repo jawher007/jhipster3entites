@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="entry">
+            <h2><span jhiTranslate="App.entry.detail.title">Entry</span> {{ entry.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="App.entry.title">Title</span></dt>
+                <dd>
+                    <span>{{ entry.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="App.entry.content">Content</span></dt>
+                <dd>
+                    <span>{{ entry.content }}</span>
+                </dd>
+                <dt><span jhiTranslate="App.entry.date">Date</span></dt>
+                <dd>
+                    <span>{{ entry.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="App.entry.forum">Forum</span></dt>
+                <dd>
+                    <div *ngIf="entry.forum">
+                        <a [routerLink]="['/forum', entry.forum?.id, 'view']">{{ entry.forum?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="App.entry.keyword">Keyword</span></dt>
+                <dd>
+                    <span *ngFor="let keyword of entry.keywords; let last = last">
+                        <a [routerLink]="['/keyword', keyword?.id, 'view']">{{ keyword.name }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/entry', entry.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

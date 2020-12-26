@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Entry.
+    -->
+    <changeSet id="20201221183522-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="forum_id"
+                                 baseTableName="entry"
+                                 constraintName="fk_entry_forum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="forum"/>
+
+        <addForeignKeyConstraint baseColumnNames="entry_id"
+                                 baseTableName="entry_keyword"
+                                 constraintName="fk_entry_keyword_entry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entry"/>
+
+        <addForeignKeyConstraint baseColumnNames="keyword_id"
+                                 baseTableName="entry_keyword"
+                                 constraintName="fk_entry_keyword_keyword_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="keyword"/>
+        
+    </changeSet>
+</databaseChangeLog>

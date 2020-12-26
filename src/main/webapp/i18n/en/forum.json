@@ -1,0 +1,24 @@
+{
+  "App": {
+    "forum": {
+      "home": {
+        "title": "Forums",
+        "createLabel": "Create a new Forum",
+        "createOrEditLabel": "Create or edit a Forum",
+        "notFound": "No Forums found"
+      },
+      "created": "A new Forum is created with identifier {{ param }}",
+      "updated": "A Forum is updated with identifier {{ param }}",
+      "deleted": "A Forum is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Forum {{ id }}?"
+      },
+      "detail": {
+        "title": "Forum"
+      },
+      "name": "Name",
+      "handle": "Handle",
+      "user": "User"
+    }
+  }
+}
